@@ -169,7 +169,8 @@
   .tl-item.visible { opacity: 1; transform: none; }
 
   .tl-time {
-    text-align: right; padding-top: 2px;
+    text-align: right; padding-top: 4px;
+    margin-right: 0.8rem;
     font-size: .72rem; color: var(--teal);
     letter-spacing: .05em; font-weight: 500;
     white-space: nowrap;
