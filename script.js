@@ -1,7 +1,4 @@
 
-/* ───────────────────────────────────────────────
-   OCEAN CANVAS ANIMATION
-─────────────────────────────────────────────── */
 const canvas = document.getElementById('ocean-canvas');
 const ctx = canvas.getContext('2d');
 let W, H, waves = [];
@@ -18,7 +15,6 @@ function initCanvas() {
 }
 
 function drawWaves(t) {
-    // deep gradient bg
     const grad = ctx.createLinearGradient(0, 0, 0, H);
     grad.addColorStop(0, '#001D3D');
     grad.addColorStop(.5, '#011530');
@@ -53,9 +49,6 @@ initCanvas();
 requestAnimationFrame(animLoop);
 
 
-/* ───────────────────────────────────────────────
-   CLOCK & DATE
-─────────────────────────────────────────────── */
 const quotes = [
     "Discipline is choosing between what you want now and what you want most.",
     "The ocean does not apologize for its depth, and you need not apologize for yours.",
@@ -92,9 +85,6 @@ updateClock();
 setInterval(updateClock, 60000);
 
 
-/* ───────────────────────────────────────────────
-   SCHEDULE DATA & RENDER
-─────────────────────────────────────────────── */
 const schedule = [
     { time: '5:00–5:15', label: 'Wake Up & Morning Ritual', cat: 'health', sub: '' },
     { time: '5:15–5:45', label: 'Running + Light Exercise', cat: 'health', sub: '' },
@@ -163,9 +153,6 @@ function renderTimeline() {
 renderTimeline();
 
 
-/* ───────────────────────────────────────────────
-   INTERSECTION OBSERVER – timeline fade-in
-─────────────────────────────────────────────── */
 const tlObs = new IntersectionObserver(entries => {
     entries.forEach(e => {
         if (e.isIntersecting) {
@@ -181,9 +168,6 @@ document.querySelectorAll('.tl-item').forEach((el, i) => {
 });
 
 
-/* ───────────────────────────────────────────────
-   IELTS TRACKER
-─────────────────────────────────────────────── */
 const ielts = [
     { icon: '📖', label: 'Vocabulary', value: 'Day 12', sub: 'Words learned today', pct: 72, streak: 7 },
     { icon: '📄', label: 'Reading', value: 'Day 12', sub: 'Passages completed', pct: 65, streak: 5 },
@@ -215,9 +199,6 @@ function renderIELTS() {
 renderIELTS();
 
 
-/* ───────────────────────────────────────────────
-   CODING TRACKER
-─────────────────────────────────────────────── */
 const coding = [
     { icon: '💻', label: 'Frontend Project', value: '68%', sub: 'Portfolio site', pct: 68 },
     { icon: '🧠', label: 'Coding Study', value: 'Day 12', sub: 'JS · React · Algo', pct: 55 },
@@ -248,9 +229,6 @@ function renderCoding() {
 renderCoding();
 
 
-/* ───────────────────────────────────────────────
-   JAPANESE TRACKER
-─────────────────────────────────────────────── */
 const japanese = [
     { icon: '🈶', label: 'Vocabulary', value: '84', sub: 'Words mastered', pct: 56, streak: 5 },
     { icon: '🎌', label: 'Anime Watched', value: '18 ep', sub: 'This week', pct: 72, streak: 6 },
@@ -274,9 +252,6 @@ function renderJapanese() {
 renderJapanese();
 
 
-/* ───────────────────────────────────────────────
-   READING TRACKER
-─────────────────────────────────────────────── */
 function renderReading() {
     document.getElementById('reading-grid').innerHTML = `
     <div class="card tracker-card" style="grid-column:span 1;">
@@ -305,9 +280,6 @@ function renderReading() {
 renderReading();
 
 
-/* ───────────────────────────────────────────────
-   SOCIAL MEDIA TIMER
-─────────────────────────────────────────────── */
 let smRunning = false, smElapsed = 0, smInterval = null;
 const LIMIT = 30 * 60; // 30 minutes in seconds
 
@@ -344,9 +316,6 @@ function resetSMTimer() {
 }
 
 
-/* ───────────────────────────────────────────────
-   50/10 FOCUS TIMER
-─────────────────────────────────────────────── */
 let ftSeconds = 50 * 60, ftRunning = false, ftBreak = false, ftTimer = null;
 
 function toggleFocus() {
@@ -366,9 +335,6 @@ function toggleFocus() {
     }
 }
 
-/* ───────────────────────────────────────────────
-   HIGHLIGHT CURRENT BLOCK
-─────────────────────────────────────────────── */
 function highlightActive() {
     const active = currentBlock();
     document.querySelectorAll('.tl-item').forEach((el, i) => {
